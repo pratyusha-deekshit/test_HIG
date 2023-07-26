@@ -3,7 +3,7 @@ terraform {
     organization = "TestPD2442"
 
     workspaces {
-      prefix = "HIGterraform_"
+      name = "autoApplySimpleIVR"
     }
   }
 

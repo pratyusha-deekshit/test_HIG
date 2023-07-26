@@ -1,5 +1,5 @@
 ### Reusable workflow to plan terraform deployment, create artifact and upload to workflow artifacts for consumption ###
-name: "Build_TF_Plan"
+name: "genesys_tf_plan"
 on:
   workflow_call:
     inputs:

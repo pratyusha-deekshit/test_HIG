@@ -1,4 +1,4 @@
-name: 'Terraform'
+name: '02 Terraform'
 
 on:
   workflow_dispatch
@@ -49,3 +49,5 @@ jobs:
     - name: Terraform Apply
       working-directory: ./blueprint
       run: terraform apply -auto-approve -input=false
+      
+    #end

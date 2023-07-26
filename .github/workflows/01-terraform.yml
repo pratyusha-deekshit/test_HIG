@@ -1,0 +1,44 @@
+name: "01_Terraform"
+on:
+  workflow_dispatch:
+
+jobs:
+  Plan_Dev:
+    if: github.ref == 'refs/heads/develop'
+    uses: pratyusha-deekshit/test_HIG/.github/workflows/genesys_tf_plan.yml@develop
+    with:
+      path: blueprint
+      tf_vars_file: dev.tf
+      gh_environment: dev
+    secrets:
+      cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+  Deploy_Dev:
+    needs: Plan_Dev
+    uses: pratyusha-deekshit/test_HIG/.github/workflows/genesys_tf_appy.yml@develop
+    with:
+      path: blueprint
+      tf_vars_file: dev.tf
+      gh_environment: dev
+    secrets:
+      cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+  Plan_Uat:
+    if: github.ref == 'refs/heads/master'
+    uses: pratyusha-deekshit/test_HIG/.github/workflows/genesys_tf_plan.yml@master
+    with:
+      path: blueprint
+      tf_vars_file: uat.tf
+      gh_environment: uat
+    secrets:
+      cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+  Deploy_Uat:
+    needs: Plan_Uat
+    uses: pratyusha-deekshit/test_HIG/.github/workflows/genesys_tf_appy.yml@main
+    with:
+      path: blueprint
+      tf_vars_file: uat.tf
+      gh_environment: uat
+    secrets:
+      cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}

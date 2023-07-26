@@ -15,7 +15,7 @@ jobs:
 
   Deploy_Dev:
     needs: Plan_Dev
-    uses: pratyusha-deekshit/test_HIG/.github/workflows/genesys_tf_appy.yml@develop
+    uses: pratyusha-deekshit/test_HIG/.github/workflows/genesys_tf_apply.yml@develop
     with:
       path: blueprint
       tf_vars_file: dev.tf
@@ -35,7 +35,7 @@ jobs:
 
   Deploy_Uat:
     needs: Plan_Uat
-    uses: pratyusha-deekshit/test_HIG/.github/workflows/genesys_tf_appy.yml@master
+    uses: pratyusha-deekshit/test_HIG/.github/workflows/genesys_tf_apply.yml@master
     with:
       path: blueprint
       tf_vars_file: uat.tf

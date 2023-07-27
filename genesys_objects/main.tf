@@ -18,6 +18,6 @@ provider "genesyscloud" {
   sdk_debug = true
 }
 
-module "classifier_users" {
+module "users" {
   source = "./modules/users"
 }

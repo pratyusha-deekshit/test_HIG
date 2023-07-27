@@ -60,10 +60,6 @@ jobs:
         if : endsWith(github.ref, '/master')
         id: workspaceprod
         run: terraform workspace select prod
-        
-      - name: Terraform Validate
-        id: validate
-        run: terraform validate
 
       - name: Terraform Plan
         id: plan

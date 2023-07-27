@@ -1,4 +1,3 @@
-### Reusable workflow to download terraform artifact built by `az_tf_plan` and apply the artifact/plan ###
 name: "genesys_tf_apply"
 on:
   workflow_call:
@@ -30,8 +29,6 @@ jobs:
   apply-plan:
     runs-on: ubuntu-latest
     environment: ${{ inputs.gh_environment }}
-    env:
-      TF_WORKSPACE:${{ inputs.gh_environment }}
     defaults:
       run:
         shell: bash
@@ -49,6 +46,8 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init
+        env:
+          TF_WORKSPACE: ${{ inputs.gh_environment }}
       
       - name: Terraform Validate
         id: validate

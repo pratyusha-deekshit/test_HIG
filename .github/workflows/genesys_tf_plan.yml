@@ -51,10 +51,16 @@ jobs:
         env:
           TF_WORKSPACE: ${{ inputs.gh_environment }}
           
-      - name: Terraform Workspace
-        id: workspace
-        run: terraform workspace select ${{ inputs.gh_environment }}
-      
+      - name: Terraform Workspace dev
+        if : endsWith(github.ref, '/develop')
+        id: workspacedev
+        run: terraform workspace select dev
+        
+      - name: Terraform Workspace prod
+        if : endsWith(github.ref, '/master')
+        id: workspaceprod
+        run: terraform workspace select prod
+        
       - name: Terraform Validate
         id: validate
         run: terraform validate

@@ -7,8 +7,7 @@ jobs:
     if: github.ref == 'refs/heads/develop'
     uses: pratyusha-deekshit/test_HIG/.github/workflows/genesys_tf_plan.yml@develop
     with:
-      path: blueprint
-      tf_vars_file: dev.tf
+      path: genesys_objects
       gh_environment: dev
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
@@ -17,28 +16,25 @@ jobs:
     needs: Plan_Dev
     uses: pratyusha-deekshit/test_HIG/.github/workflows/genesys_tf_apply.yml@develop
     with:
-      path: blueprint
-      tf_vars_file: dev.tf
+      path: genesys_objects
       gh_environment: dev
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-  Plan_Uat:
+  Plan_Prod:
     if: github.ref == 'refs/heads/master'
     uses: pratyusha-deekshit/test_HIG/.github/workflows/genesys_tf_plan.yml@master
     with:
-      path: blueprint
-      tf_vars_file: uat.tf
+      path: genesys_objects
       gh_environment: prod
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-  Deploy_Uat:
+  Deploy_Prod:
     needs: Plan_Uat
     uses: pratyusha-deekshit/test_HIG/.github/workflows/genesys_tf_apply.yml@master
     with:
-      path: blueprint
-      tf_vars_file: uat.tf
+      path: genesys_objects
       gh_environment: prod
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}

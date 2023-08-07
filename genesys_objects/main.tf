@@ -25,4 +25,3 @@ module "users" {
 resource "genesyscloud_flow" "mysimpleflow" {
   filepath = "./modules/call_flow/new_v1-0.yaml"
   file_content_hash = filesha256("./modules/call_flow/new_v1-0.yaml") 
-}

@@ -1,5 +1,5 @@
 inboundCall:
-  name: Test_HIG
+  name: Test_HIG_1
   division: Home
   startUpRef: "/inboundCall/menus/menu[Main Menu_10]"
   defaultLanguage: en-us

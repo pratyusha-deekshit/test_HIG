@@ -17,7 +17,7 @@ terraform {
 provider "genesyscloud" {
   sdk_debug = true
 }
-
+/*
 module "auth_division" {
   source = "./modules/auth_division"   
 }
@@ -43,3 +43,4 @@ resource "genesyscloud_flow" "flowname" {
   filepath = "./modules/workflows/SimpleFinancialIvr_v2-0.yaml"
   file_content_hash = filesha256("./modules/workflows/SimpleFinancialIvr_v2-0.yaml") 
 }
+*/

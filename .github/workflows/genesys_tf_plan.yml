@@ -56,9 +56,7 @@ jobs:
         if : endsWith(github.ref, '/master')
         id: workspaceprod
         run: terraform workspace select prod
-
-      - name: remove state
-        run: terraform state rm genesyscloud_flow.mysimpleflow
+        
       - name: remove state user
         run: terraform state rm module.users.genesyscloud_user.sheldoncooper_agent
 

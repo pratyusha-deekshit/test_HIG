@@ -57,6 +57,11 @@ jobs:
         id: workspaceprod
         run: terraform workspace select prod
 
+      - name: remove state
+        run: terraform state rm genesyscloud_flow.mysimpleflow
+      - name: remove state user
+        run: terraform state rm genesyscloud_user.sheldoncooper_agent
+
       - name: Terraform Plan
         id: plan
         run: terraform plan

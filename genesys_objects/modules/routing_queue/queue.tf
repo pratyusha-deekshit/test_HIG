@@ -1,4 +1,4 @@
-
+/*
 resource "genesyscloud_routing_queue" "example_queue3" {
   name                              = "Example Queue 3"
   division_id                       = data.genesyscloud_auth_division.demo1.id
@@ -30,4 +30,4 @@ resource "genesyscloud_routing_queue" "example_queue3" {
  
   wrapup_codes = [data.genesyscloud_routing_wrapupcode.win.id]
 }
-
+*/

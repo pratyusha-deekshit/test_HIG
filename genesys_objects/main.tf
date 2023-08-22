@@ -17,12 +17,12 @@ terraform {
 provider "genesyscloud" {
   sdk_debug = true
 }
-/*
+
 module "auth_division" {
   source = "./modules/auth_division"   
 }
 
-
+/*
 # Module for routing-queue
 module "routing_queue" {
     source = "./modules/routing_queue"

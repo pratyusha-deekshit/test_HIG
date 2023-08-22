@@ -1,5 +1,5 @@
 #Division Data Source
-
+/*
 data "genesyscloud_auth_division" "demo1"{
     name = "Demo1"
 }
@@ -17,4 +17,4 @@ data "genesyscloud_routing_skill" "test_skill2" {
 data "genesyscloud_routing_wrapupcode" "win" {
   name = "Win"
 }
-
+*/

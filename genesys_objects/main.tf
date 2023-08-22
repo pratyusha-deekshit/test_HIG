@@ -36,9 +36,10 @@ module "routing-wrapup-code" {
 	source = "./modules/routing_wrapupcode"
 }
 
-
+/*
 #Module for workflow
 resource "genesyscloud_flow" "flowname" {
   filepath = "./modules/workflows/SimpleFinancialIvr_v2-0.yaml"
   file_content_hash = filesha256("./modules/workflows/SimpleFinancialIvr_v2-0.yaml") 
 }
+*/

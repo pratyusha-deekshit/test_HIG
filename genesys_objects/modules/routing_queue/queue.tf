@@ -30,9 +30,5 @@ resource "genesyscloud_routing_queue" "example_queue3" {
  
   wrapup_codes = [data.genesyscloud_routing_wrapupcode.win.id]
 }
-<<<<<<< HEAD
 
 */
-=======
-*/
->>>>>>> 620b2d1758d0ca570999ac09d2a45d6ce8a9a395

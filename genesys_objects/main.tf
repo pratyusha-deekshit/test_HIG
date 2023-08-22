@@ -18,10 +18,6 @@ provider "genesyscloud" {
   sdk_debug = true
 }
 
-<<<<<<< HEAD
-=======
-# Module for auth-division
->>>>>>> 620b2d1758d0ca570999ac09d2a45d6ce8a9a395
 module "auth_division" {
   source = "./modules/auth_division"   
 }
@@ -42,15 +38,8 @@ module "routing-wrapup-code" {
 }
 
 
-
-
 #Module for workflow
 resource "genesyscloud_flow" "flowname" {
-  filepath = "./modules/workflows/ShaileshTest.yaml"
-<<<<<<< HEAD
+  filepath = "./modules/workflows/SimpleFinancialIvr_v2-0.yaml"
   file_content_hash = filesha256("./modules/workflows/SimpleFinancialIvr_v2-0.yaml") 
-=======
-  file_content_hash = filesha256("./modules/workflows/ShaileshTest.yaml") 
->>>>>>> 620b2d1758d0ca570999ac09d2a45d6ce8a9a395
 }
-

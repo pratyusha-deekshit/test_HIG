@@ -1,6 +1,5 @@
 inboundCall:
-  name: SimpleFinancialIvr
-  description: SimpleFinancialIvr
+  name: ShaileshTest
   division: Home
   startUpRef: "/inboundCall/menus/menu[Main Menu_10]"
   defaultLanguage: en-us
@@ -12,7 +11,7 @@ inboundCall:
         defaultEngine:
           voice: Jill
   initialGreeting:
-    tts: Hi welcome to SimpleFinancial.  Please listen to our menu carefully.
+    tts: Hello, this is the initial greeting.
   settingsActionDefaults:
     playAudioOnSilence:
       timeout:
@@ -23,9 +22,6 @@ inboundCall:
         lit:
           seconds: 40
     callData:
-      processingPrompt:
-        noValue: true
-    callBridge:
       processingPrompt:
         noValue: true
     collectInput:
@@ -68,6 +64,9 @@ inboundCall:
       lit: 3
   settingsPrompts:
     ensureAudioInPrompts: false
+    promptMediaToValidate:
+      - mediaType: audio
+      - mediaType: tts
   settingsSpeechRec:
     completeMatchTimeout:
       lit:
@@ -82,6 +81,7 @@ inboundCall:
       lit: 50
     asrCompanyDir: none
     asrEnabledOnFlow: true
+    suppressRecording: true
   menus:
     - menu:
         name: Main Menu
@@ -112,18 +112,16 @@ inboundCall:
               dtmf: digit_9
               globalDtmf: false
               globalSpeechRecTerms: false
-          - menuTransferToAcd:
-              name: SimpleFinancial401K
-              dtmf: digit_1
-              globalDtmf: false
-              globalSpeechRecTerms: false
+  tasks:
+    - task:
+        name: Initial Task
+        refId: Initial Task_12
+        actions:
+          - transferToAcd:
+              name: Transfer to ACD
               targetQueue:
                 lit:
-                  name: Simple Financial 401K queue
-              preTransferAudio:
-                tts: We will transfer you to a 401K specialist shortly
-              failureTransferAudio:
-                tts: We are sorry. We are experience technical difficulties, please call back later
+                  name: Example Queue 2
               priority:
                 lit: 0
               preferredAgents:
@@ -135,26 +133,5 @@ inboundCall:
                   noValue: true
                 errorMessage:
                   noValue: true
-          - menuTransferToAcd:
-              name: SimpleFinancialIRA
-              dtmf: digit_2
-              globalDtmf: false
-              globalSpeechRecTerms: false
-              targetQueue:
-                lit:
-                  name: Simple Financial IRA queue
-              preTransferAudio:
-                tts: We will transfer you to a 401K specialist shortly
-              failureTransferAudio:
-                tts: We are sorry. We are experience technical difficulties, please call back later
-              priority:
-                lit: 0
-              preferredAgents:
-                noValue: true
-              languageSkill:
-                noValue: true
-              failureOutputs:
-                errorType:
-                  noValue: true
-                errorMessage:
-                  noValue: true
+          - disconnect:
+              name: Disconnect

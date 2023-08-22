@@ -21,7 +21,6 @@ provider "genesyscloud" {
 module "auth_division" {
   source = "./modules/auth_division"   
 }
-/*
 # Module for routing-queue
 module "routing_queue" {
     source = "./modules/routing_queue"
@@ -42,4 +41,3 @@ resource "genesyscloud_flow" "flowname" {
   filepath = "./modules/workflows/SimpleFinancialIvr_v2-0.yaml"
   file_content_hash = filesha256("./modules/workflows/SimpleFinancialIvr_v2-0.yaml") 
 }
-*/

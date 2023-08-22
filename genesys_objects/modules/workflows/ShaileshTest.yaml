@@ -1,5 +1,5 @@
 inboundCall:
-  name: Test_HIG_3
+  name: ShaileshTest
   division: Home
   startUpRef: "/inboundCall/menus/menu[Main Menu_10]"
   defaultLanguage: en-us
@@ -81,7 +81,7 @@ inboundCall:
       lit: 50
     asrCompanyDir: none
     asrEnabledOnFlow: true
-    suppressRecording: false
+    suppressRecording: true
   menus:
     - menu:
         name: Main Menu
@@ -112,3 +112,26 @@ inboundCall:
               dtmf: digit_9
               globalDtmf: false
               globalSpeechRecTerms: false
+  tasks:
+    - task:
+        name: Initial Task
+        refId: Initial Task_12
+        actions:
+          - transferToAcd:
+              name: Transfer to ACD
+              targetQueue:
+                lit:
+                  name: Example Queue 2
+              priority:
+                lit: 0
+              preferredAgents:
+                noValue: true
+              languageSkill:
+                noValue: true
+              failureOutputs:
+                errorType:
+                  noValue: true
+                errorMessage:
+                  noValue: true
+          - disconnect:
+              name: Disconnect

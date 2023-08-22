@@ -56,9 +56,6 @@ jobs:
         if : endsWith(github.ref, '/master')
         id: workspaceprod
         run: terraform workspace select prod
-        
-      - name: remove state user
-        run: terraform state rm module.users.genesyscloud_user.sheldoncooper_agent
 
       - name: Terraform Plan
         id: plan
